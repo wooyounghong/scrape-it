@@ -17,7 +17,7 @@ app.get('/api', (req, res, next) => {
 
 app.get('*', (req, res, next) => {
   try {
-    res.sendFile(path.join(__dirname, 'client/build/index.html'));
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
   } catch (error) {
     next(error);
   }
