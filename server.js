@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const $PORT = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api', (req, res, next) => {
   try {
@@ -13,7 +17,7 @@ app.get('/api', (req, res, next) => {
 
 app.get('*', (req, res, next) => {
   try {
-    res.send('root page');
+    res.sendFile(path.join(__dirname, 'client/build/index.html'));
   } catch (error) {
     next(error);
   }
