@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
+import { Input, Icon } from 'semantic-ui-react';
 
 class InputForm extends React.Component {
   constructor() {
@@ -12,7 +12,10 @@ class InputForm extends React.Component {
   render() {
     return (
       <div>
-        <Input icon="search" placeholder="Search..." inverted circular link />
+        <Input
+          icon={<Icon name="search" inverted circular link />}
+          placeholder="Search..."
+        />
       </div>
     );
   }
