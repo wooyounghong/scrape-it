@@ -5,8 +5,19 @@ class InputForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      input: null,
+      inputValue: '',
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState(
+      {
+        inputValue: event.target.value,
+      },
+      () => {
+        console.log('input value', this.state.inputValue);
+      }
+    );
   }
 
   render() {
@@ -14,7 +25,10 @@ class InputForm extends React.Component {
       <div>
         <Input
           icon={<Icon name="search" inverted circular link />}
-          placeholder="Search..."
+          size="huge"
+          placeholder="Insert link from Indeed for job scraping!"
+          value={this.state.inputValue}
+          onChange={this.handleChange}
         />
       </div>
     );
