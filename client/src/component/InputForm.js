@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input, Icon } from 'semantic-ui-react';
-
+import { Icon, Button, Form } from 'semantic-ui-react';
+import '../css/InputForm.css';
 class InputForm extends React.Component {
   constructor() {
     super();
@@ -8,29 +8,32 @@ class InputForm extends React.Component {
       inputValue: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    this.setState(
-      {
-        inputValue: event.target.value,
-      },
-      () => {
-        console.log('input value', this.state.inputValue);
-      }
-    );
+    this.setState({
+      inputValue: event.target.value,
+    });
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('button was clicked');
   }
 
   render() {
     return (
-      <div>
-        <Input
-          icon={<Icon name="search" inverted circular link />}
+      <Form onSubmit={this.handleSubmit} className="form-container">
+        <Form.Input
+          icon={<Icon name="search" />}
           size="huge"
           placeholder="Insert link from Indeed for job scraping!"
           value={this.state.inputValue}
           onChange={this.handleChange}
         />
-      </div>
+        <Button type="submit" onSubmit={this.handleSubmit}>
+          Submit
+        </Button>
+      </Form>
     );
   }
 }

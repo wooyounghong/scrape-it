@@ -1,4 +1,20 @@
-.App {
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 70px;
+  line-height: 100px;
+}
+.app-description {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 25px;
+}
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +45,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
